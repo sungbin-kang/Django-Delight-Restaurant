@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    {% block head %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
+</head>
+
+<body>
+  <h1>This is base.html</h1>
+
+  {% block content %}
+	<!-- file that has {% extends "vetoffice/base.html"%} with content blocks -->
+  {% endblock %}
+
+</body>
