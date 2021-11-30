@@ -1,4 +1,16 @@
+# Django #
+*.sqlite3
+**/__pycache__/
+
+# Environments 
 venv/
 .env
+
+# Visual Studio Code # 
 .DS_Store
-*.sqlite3
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
