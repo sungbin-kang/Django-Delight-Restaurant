@@ -9,11 +9,6 @@ from django.views.generic.edit import CreateView
 
 # Create your views here.
 
-# *** all functions and classes requires login *** 
-
-# class HomeView(TemplateView):
-#     template_name = "inventory/home.html"
-
 def home(request):
     context = {}
     return render(request, "inventory/home.html", context)
@@ -22,6 +17,8 @@ class SignUp(CreateView):
     form_class = UserCreationForm
     template_name = "registration/signup.html"
     success_url = reverse_lazy("login")
+
+# *** all functions and classes requires login *** 
 
 # class MenuView(TemplateView)
 
