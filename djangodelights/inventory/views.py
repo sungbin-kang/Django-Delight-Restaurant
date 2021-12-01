@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView
 
-from .models import MenuItem
+from .models import *
 
 # Create your views here.
 
@@ -25,7 +25,8 @@ class SignUp(CreateView):
 class MenuItemList(ListView):
     model = MenuItem
 
-# class InventoryList(ListView)
+class IngredientList(ListView):
+    model = Ingredient
 
 # class InventoryCreate(CreateView)
 
@@ -35,7 +36,11 @@ class MenuItemList(ListView):
 
 # class MenuItemUpdate(UpdateView)
 
-# class PurchaseList(ListView)
+class PurchaseList(ListView):
+    model = Purchase
+
+    def get_template_names(self):
+        return "inventory/report_list.html"
 
 # class PurchaseCreate(CreateView)
 

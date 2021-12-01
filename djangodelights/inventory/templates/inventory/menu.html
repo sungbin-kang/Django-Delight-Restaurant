@@ -4,14 +4,19 @@
 {% endblock %}
 
 {% block content %}
-<p>This is menu.html</p>
 
-<div class="menu-menu-bar">
-    <ul>
-        <li>Inventory</li>
-        <li>Menu</li>
-        <li>Report</li>
-    </ul>
-</div>
+    <p>This is menu.html</p>
+
+    <div class="menu-menu-bar">
+        <ul>
+            <li>Menu</li>
+            <li>Ingredient</li>
+            <li>Report</li>
+
+        </ul>
+    </div>
+
+    {% block subcontent %}
+    {% endblock subcontent %}
 
 {% endblock %}
