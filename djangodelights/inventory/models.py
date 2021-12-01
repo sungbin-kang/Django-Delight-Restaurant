@@ -5,6 +5,13 @@ class Ingredient(models.Model):
     # quantity
     # unit
     # unit_per_price
+    name = models.CharField(max_length=200, unique=True)
+    quantity = models.PositiveBigIntegerField(default=0)
+    
+    gram = "g"
+    litre = "l"
+    ounce = "oz"
+    count = ""
 
     # def __str__
     pass
