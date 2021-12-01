@@ -22,11 +22,34 @@ class SignUp(CreateView):
 
 # *** all functions and classes requires login *** 
 
+# ----------------------- MENU ITEM -----------------------
 class MenuItemList(ListView):
     model = MenuItem
 
+
+
+# ----------------------- INGREDENT -----------------------
+
 class IngredientList(ListView):
     model = Ingredient
+
+
+# ----------------------- RECIPE REQURIEMENT -----------------------
+
+class RecipeRequirementList(ListView):
+    model = RecipeRequirement
+
+    def get_template_names(self):
+        return "inventory/recipe_list.html"
+
+
+# ----------------------- PURCHASE -----------------------
+
+class PurchaseList(ListView):
+    model = Purchase
+
+    def get_template_names(self):
+        return "inventory/report_list.html"
 
 # class InventoryCreate(CreateView)
 
@@ -36,11 +59,7 @@ class IngredientList(ListView):
 
 # class MenuItemUpdate(UpdateView)
 
-class PurchaseList(ListView):
-    model = Purchase
 
-    def get_template_names(self):
-        return "inventory/report_list.html"
 
 # class PurchaseCreate(CreateView)
 
