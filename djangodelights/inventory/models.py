@@ -39,7 +39,6 @@ class Ingredient(models.Model):
         unit_price={self.price_per_unit}
         """
 
-
 class RecipeRequirement(models.Model):
     """
     Represents an ingredient required for a recipe for a MenuItem

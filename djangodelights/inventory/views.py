@@ -7,7 +7,8 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView
 
-from .models import *
+from .models import MenuItem, Ingredient, RecipeRequirement, Purchase
+from .forms import MenuItemForm
 
 # Create your views here.
 
@@ -22,20 +23,23 @@ class SignUp(CreateView):
 
 # *** all functions and classes requires login *** 
 
-# ----------------------- MENU ITEM -----------------------
+# ----------------------- MENU ITEM -------------------------
 class MenuItemList(ListView):
     model = MenuItem
 
+class MenuItemCreateView(CreateView):
+    model = MenuItem
+    form_class = MenuItemForm
+    template_name = "inventory/menuitem_add_form.html"
 
 
-# ----------------------- INGREDENT -----------------------
+# ----------------------- INGREDENT -------------------------
 
 class IngredientList(ListView):
     model = Ingredient
 
 
-# ----------------------- RECIPE REQURIEMENT -----------------------
-
+# ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
 
@@ -43,7 +47,7 @@ class RecipeRequirementList(ListView):
         return "inventory/recipe_list.html"
 
 
-# ----------------------- PURCHASE -----------------------
+# ----------------------- PURCHASE --------------------------
 
 class PurchaseList(ListView):
     model = Purchase
@@ -64,3 +68,4 @@ class PurchaseList(ListView):
 # class PurchaseCreate(CreateView)
 
 # class PurchaseUpdate(UpdateView)
+

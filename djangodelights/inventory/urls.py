@@ -9,8 +9,10 @@ urlpatterns = [
 
     # menu/
     path("menu/", views.MenuItemList.as_view(), name="menuitem_list"),
+    path("menu/new", views.MenuItemCreateView.as_view(), name="menuitem_add"),
 
     # menu/recipe
+    # change the link to each menu name
     path("menu/recipe", views.RecipeRequirementList.as_view(), name="recipe_list"),
 
     # ingredient/
