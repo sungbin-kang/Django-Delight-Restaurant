@@ -9,8 +9,8 @@
 {% if user.is_authenticated %}
     <div class="home-menu-bar">
         <ul>
+            <a href="{% url 'menuitem_list' %}"><li>Menu</li></a>
             <li>Inventory</li>
-            <li>Menu</li>
             <li>Report</li>
         </ul>
     </div>
