@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <head>
-    {% block head %}
-    {% endblock %}
-
+    {% load static %}
     <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
 </head>
 
 <body>
   <h1>This is base.html</h1>
 
+  <div class="login-logout-signup-section">
+    {% if user.username %}
+        <p>Welcome {{ user.username }}</p>
+        <a class="logout-button" href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+        <a class="login-button" href="{% url 'login' %}">Log In</a> 
+        <a class="signup-button" href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+</div>
+
   {% block content %}
-	<!-- file that has {% extends "vetoffice/base.html"%} with content blocks -->
-  {% endblock %}
+  {% endblock content %}
 
 </body>

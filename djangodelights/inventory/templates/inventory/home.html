@@ -1,9 +1,19 @@
 {% extends "inventory/base.html"%}
-{% load static %}
 
 {% block head %}
 {% endblock %}
 
 {% block content %}
 <p>This is home.html</p>
+
+{% if user.is_authenticated %}
+    <div class="home-menu-bar">
+        <ul>
+            <li>Inventory</li>
+            <li>Menu</li>
+            <li>Report</li>
+        </ul>
+    </div>
+{% endif %}
+
 {% endblock %}

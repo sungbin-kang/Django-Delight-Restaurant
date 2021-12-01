@@ -1,10 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
 # *** all functions and classes requires login *** 
 
-# class HomeView(TemplateView)
+# class HomeView(TemplateView):
+#     template_name = "inventory/home.html"
+
+def home(request):
+    context = {}
+    return render(request, "inventory/home.html", context)
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = "registration/signup.html"
+    success_url = reverse_lazy("login")
 
 # class MenuView(TemplateView)
 
