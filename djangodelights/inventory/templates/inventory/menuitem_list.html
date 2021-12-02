@@ -10,7 +10,8 @@
 
     <ul>
         {% for menuitem in menuitem_list %}
-            <li>{{ menuitem }} <a href="{% url 'recipe_list' menuitem.title %}"><p>View Recipe</p></a> </li>
+            <li><a href="{% url 'menuitem_update' menuitem.id %}">{{ menuitem }}</a>
+                <a href="{% url 'recipe_list' menuitem.title %}"><p>View Recipe</p></a> </li>
         {% endfor %}
     </ul>
 

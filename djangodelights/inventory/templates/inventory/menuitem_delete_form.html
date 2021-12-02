@@ -4,14 +4,13 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is menuitem_update_form.html</p>
+    <p>This is menuitem_delete_form.html</p>
 
     <div>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Update">
-            <a href="{% url 'menuitem_delete' object.id %}"><button type="button">Delete</button></a>
+            <input type="submit" value="Delete">
         </form>
     </div>
 

@@ -10,8 +10,8 @@ urlpatterns = [
     # menu/
     path("menu/", views.MenuItemList.as_view(), name="menuitem_list"),
     path("menu/new/", views.MenuItemCreateView.as_view(), name="menuitem_add"),
-    # path("menu/update/<pk>", views.MenuItemUpdateView.as_view(), name="menuitem_update"),
-
+    path("menu/update/<int:pk>", views.MenuItemUpdateView.as_view(), name="menuitem_update"),
+    path("menu/delete/<int:pk>", views.MenuItemDeleteView.as_view(), name="menuitem_delete"),
 
     # menu/recipe
     # change the link to each menu name

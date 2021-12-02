@@ -33,10 +33,16 @@ class MenuItemCreateView(CreateView):
     form_class = MenuItemForm
     template_name = "inventory/menuitem_add_form.html"
 
-# class MenuItemUpdateView(UpdateView):
-#     model = MenuItem
-#     form_class = MenuItemForm
-#     template_name = "inventory/menuitem_update_form.html"
+class MenuItemUpdateView(UpdateView):
+    model = MenuItem
+    form_class = MenuItemForm
+    template_name = "inventory/menuitem_update_form.html"
+
+class MenuItemDeleteView(DeleteView):
+    model = MenuItem
+    form_class = MenuItemForm
+    template_name = "inventory/menuitem_delete_form.html"
+    success_url = "/menu"
 
 
 # ----------------------- INGREDENT -------------------------
