@@ -8,4 +8,13 @@
 
     <a href="{% url 'recipe_add' %}"><p>Add Recipe</p></a>
 
+    <p>{{context}}</p>
+
+    <ul>
+        {% for recipe in reciperequirement_list %}
+            <li>{{ recipe }}</li>
+
+        {% endfor %}
+    </ul>
+
 {% endblock subcontent %}

@@ -28,7 +28,7 @@ class Ingredient(models.Model):
     price_per_unit = models.FloatField(default=0)
 
     def get_absolute_url(self):
-        return "/ingredients"
+        return "/ingredient"
     
 
     def __str__(self):
@@ -67,4 +67,4 @@ class Purchase(models.Model):
         return f"menu_item=[{self.menu_item.__str__()}]; time={self.timestamp}"
 
     def get_absolute_url(self):
-        return "/purchases"
+        return "/report"

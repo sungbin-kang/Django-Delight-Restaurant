@@ -6,13 +6,11 @@
 {% block subcontent %}
     <p>This is menuitem_list.html</p>
 
-    <a href="{% url 'recipe_list' %}"><p>View Recipe</p></a>
-
     <a href="{% url 'menuitem_add' %}"><p>Add Menu</p></a>
 
     <ul>
         {% for menuitem in menuitem_list %}
-        <li>{{menuitem}}</li>
+            <li>{{ menuitem }} <a href="{% url 'recipe_list' menuitem.title %}"><p>View Recipe</p></a> </li>
         {% endfor %}
     </ul>
 

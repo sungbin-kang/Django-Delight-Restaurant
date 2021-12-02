@@ -7,6 +7,8 @@
 <body>
   <h1>This is base.html</h1>
 
+  <a href="{% url 'home' %}"><p>Home</p></a>
+
   <div class="login-logout-signup-section">
     {% if user.username %}
         <p>Welcome {{ user.username }}</p>

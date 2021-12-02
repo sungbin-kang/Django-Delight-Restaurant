@@ -1,3 +1,4 @@
+from django.db.models import query
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
@@ -52,6 +53,13 @@ class IngredientCreateView(CreateView):
 # ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
+
+    def get_queryset(self):
+        menuitem_title = self.kwargs["menuitem_title"]
+        menuitem = MenuItem.objects.get(title=menuitem_title)
+        queryset = menuitem.reciperequirement_set.all()
+
+        return queryset
 
     def get_template_names(self):
         return "inventory/recipe_list.html"

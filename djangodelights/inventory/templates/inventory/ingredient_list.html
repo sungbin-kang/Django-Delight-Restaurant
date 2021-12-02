@@ -8,4 +8,10 @@
 
     <a href="{% url 'ingredient_add' %}"><p>Add Ingredient</p></a>
 
+    <ul>
+        {% for ingredient in ingredient_list %}
+            <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock subcontent %}

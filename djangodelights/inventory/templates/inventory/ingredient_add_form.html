@@ -6,4 +6,12 @@
 {% block subcontent %}
     <p>This is ingredient_add_form.html</p>
 
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+
 {% endblock subcontent %}
