@@ -16,7 +16,9 @@ urlpatterns = [
     # menu/recipe
     # change the link to each menu name
     path("menu/<menuitem_title>/recipe/", views.RecipeRequirementList.as_view(), name="recipe_list"),
-    path("menu/recipe/new/", views.RecipeRequirementCreateView.as_view(), name="recipe_add"),
+    path("menu/<menuitem_title>/recipe/new/", views.RecipeRequirementCreateView.as_view(), name="recipe_add"),
+    # path("menu/<menuitem_title>/recipe/update/<int:pk>", views.RecipeRequirementUpdateView.as_view(), name="recipe_update"),
+    
 
     # ingredient/
     path("ingredient/", views.IngredientList.as_view(), name="ingredient_list"),

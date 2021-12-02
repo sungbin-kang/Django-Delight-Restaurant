@@ -50,8 +50,8 @@ class RecipeRequirement(models.Model):
     def __str__(self):
         return f"menu_item=[{self.menu_item.__str__()}]; ingredient={self.ingredient.name}; qty={self.quantity}"
     
-    def get_absolute_url(self):
-        return "/menu"
+    # def get_absolute_url(self):
+    #     return "/menu"
 
     def enough(self):
         return self.quantity <= self.ingredient.quantity

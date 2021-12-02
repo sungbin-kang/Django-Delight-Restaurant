@@ -64,8 +64,12 @@ class RecipeRequirementList(ListView):
         menuitem_title = self.kwargs["menuitem_title"]
         menuitem = MenuItem.objects.get(title=menuitem_title)
         queryset = menuitem.reciperequirement_set.all()
-
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["menuitem_title"] = self.kwargs["menuitem_title"]
+        return context
 
     def get_template_names(self):
         return "inventory/recipe_list.html"
@@ -74,6 +78,17 @@ class RecipeRequirementCreateView(CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_add_form.html"
+
+# class RecipeRequirementUpdateView(UpdateView):
+#     model = RecipeRequirement
+#     form_class = RecipeRequirementForm
+#     template_name = "inventory/recipe_update_form.html"
+
+# class RecipeRequirementDeleteView(DeleteView):
+#     model = RecipeRequirement
+#     form_class = RecipeRequirementForm
+#     template_name = "inventory/recipe_delete_form.html"
+#     success_url = "/" ## need to figure out
 
 
 # ----------------------- PURCHASE --------------------------
