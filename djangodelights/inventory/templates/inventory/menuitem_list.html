@@ -10,5 +10,11 @@
 
     <a href="{% url 'menuitem_add' %}"><p>Add Menu</p></a>
 
+    <ul>
+        {% for menuitem in menuitem_list %}
+        <li>{{menuitem}}</li>
+        {% endfor %}
+    </ul>
+
 
 {% endblock subcontent %}
