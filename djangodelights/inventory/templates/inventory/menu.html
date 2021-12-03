@@ -9,10 +9,9 @@
 
     <div class="menu-menu-bar">
         <ul>
-            <li>Menu</li>
-            <li>Ingredient</li>
-            <li>Report</li>
-
+            <a href="{% url 'menuitem_list' %}"><li>Menu</li></a>
+            <a href="{% url 'ingredient_list' %}"><li>Ingredient</li></a>
+            <a href="{% url 'report_list' %}"><li>Report</li></a>
         </ul>
     </div>
 

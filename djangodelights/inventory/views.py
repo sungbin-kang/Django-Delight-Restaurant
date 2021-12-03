@@ -59,6 +59,7 @@ class IngredientCreateView(CreateView):
 # ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
+    template_name = "inventory/recipe_list.html"
 
     def get_queryset(self):
         menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
@@ -70,10 +71,7 @@ class RecipeRequirementList(ListView):
         context = super().get_context_data(**kwargs)
         context["menuitem_title"] = self.kwargs["menuitem_title"]
         return context
-
-    def get_template_names(self):
-        return "inventory/recipe_list.html"
-
+        
 class RecipeRequirementCreateView(CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
@@ -111,9 +109,7 @@ class RecipeRequirementDeleteView(DeleteView):
 
 class PurchaseList(ListView):
     model = Purchase
-
-    def get_template_names(self):
-        return "inventory/report_list.html"
+    template_name = "inventory/report_list.html"
 
 class PurchaseCreateView(CreateView):
     model = Purchase
