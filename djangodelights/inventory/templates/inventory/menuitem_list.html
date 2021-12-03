@@ -11,7 +11,7 @@
     <ul>
         {% for menuitem in menuitem_list %}
             <li>{{ menuitem }}<a href="{% url 'menuitem_update' menuitem.id %}">Edit Menu</a>
-                <a href="{% url 'recipe_list' menuitem.title %}"><p>View Recipe</p></a> </li>
+                <a href="{% url 'recipe_list' menuitem.title|slugify %}"><p>View Recipe</p></a> </li>
         {% endfor %}
     </ul>
 

@@ -4,7 +4,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -61,7 +61,7 @@ class RecipeRequirementList(ListView):
     model = RecipeRequirement
 
     def get_queryset(self):
-        menuitem_title = self.kwargs["menuitem_title"]
+        menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
         menuitem = MenuItem.objects.get(title=menuitem_title)
         queryset = menuitem.reciperequirement_set.all()
         return queryset
@@ -78,6 +78,10 @@ class RecipeRequirementCreateView(CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_add_form.html"
+    
+    def get_success_url(self):
+        menuitem_title = self.kwargs["menuitem_title"]
+        return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
 
 # class RecipeRequirementUpdateView(UpdateView):
 #     model = RecipeRequirement

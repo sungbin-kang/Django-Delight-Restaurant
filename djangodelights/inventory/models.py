@@ -17,6 +17,10 @@ class MenuItem(models.Model):
     def __str__(self):
         return f"title={self.title}; price={self.price}"
 
+    def save(self, *args, **kwargs):
+        self.title = self.title.lower()
+        return super(MenuItem, self).save(*args, **kwargs)
+
 
 class Ingredient(models.Model):
     """
