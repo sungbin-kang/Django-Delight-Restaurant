@@ -83,16 +83,28 @@ class RecipeRequirementCreateView(CreateView):
         menuitem_title = self.kwargs["menuitem_title"]
         return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
 
-# class RecipeRequirementUpdateView(UpdateView):
-#     model = RecipeRequirement
-#     form_class = RecipeRequirementForm
-#     template_name = "inventory/recipe_update_form.html"
+class RecipeRequirementUpdateView(UpdateView):
+    model = RecipeRequirement
+    form_class = RecipeRequirementForm
+    template_name = "inventory/recipe_update_form.html"
 
-# class RecipeRequirementDeleteView(DeleteView):
-#     model = RecipeRequirement
-#     form_class = RecipeRequirementForm
-#     template_name = "inventory/recipe_delete_form.html"
-#     success_url = "/" ## need to figure out
+    def get_success_url(self):
+        menuitem_title = self.kwargs["menuitem_title"]
+        return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["menuitem_title"] = self.kwargs["menuitem_title"]
+        return context
+
+class RecipeRequirementDeleteView(DeleteView):
+    model = RecipeRequirement
+    form_class = RecipeRequirementForm
+    template_name = "inventory/recipe_delete_form.html"
+    
+    def get_success_url(self):
+        menuitem_title = self.kwargs["menuitem_title"]
+        return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
 
 
 # ----------------------- PURCHASE --------------------------

@@ -1,0 +1,17 @@
+{% extends "inventory/menu.html"%}
+
+{% block head %}
+{% endblock %}
+
+{% block subcontent %}
+    <p>This is recipe_delete_form.html</p>
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+{% endblock subcontent %}

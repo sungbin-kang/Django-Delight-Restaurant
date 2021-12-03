@@ -1,0 +1,18 @@
+{% extends "inventory/menu.html"%}
+
+{% block head %}
+{% endblock %}
+
+{% block subcontent %}
+    <p>This is recipe_update_form.html</p>
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update">
+            <a href="{% url 'recipe_delete' menuitem_title object.id %}"><button type="button" >Delete</button></a>
+        </form>
+    </div>
+
+{% endblock subcontent %}

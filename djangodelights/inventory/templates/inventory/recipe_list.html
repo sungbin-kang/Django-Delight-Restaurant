@@ -10,7 +10,8 @@
 
     <ul>
         {% for recipe in reciperequirement_list %}
-            <li>{{ recipe }}
+            <li>{{ recipe }} {{ recipe.id }}
+                <a href="{% url 'recipe_update' menuitem_title=menuitem_title pk=recipe.id %}">Edit Recipe</a>
             </li>
         {% endfor %}
     </ul>
