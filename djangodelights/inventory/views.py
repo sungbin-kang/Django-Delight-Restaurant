@@ -55,6 +55,17 @@ class IngredientCreateView(CreateView):
     form_class = IngredientForm
     template_name = "inventory/ingredient_add_form.html"
 
+class IngredientUpdateView(UpdateView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = "inventory/ingredient_update_form.html"
+
+class IngredientDeleteView(DeleteView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = "inventory/ingredient_delete_form.html"
+    success_url = "/ingredient"
+
 
 # ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementList(ListView):
@@ -71,7 +82,7 @@ class RecipeRequirementList(ListView):
         context = super().get_context_data(**kwargs)
         context["menuitem_title"] = self.kwargs["menuitem_title"]
         return context
-        
+
 class RecipeRequirementCreateView(CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm

@@ -23,6 +23,8 @@ urlpatterns = [
     # ingredient/
     path("ingredient/", views.IngredientList.as_view(), name="ingredient_list"),
     path("ingredient/new/", views.IngredientCreateView.as_view(), name="ingredient_add"),
+    path("ingredient/update/<int:pk>", views.IngredientUpdateView.as_view(), name="ingredient_update"),
+    path("ingredient/delete/<int:pk>", views.IngredientDeleteView.as_view(), name="ingredient_delete"),
 
     # report/
     path("report/", views.PurchaseList.as_view(), name="report_list"),
