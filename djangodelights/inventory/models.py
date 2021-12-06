@@ -71,4 +71,4 @@ class Purchase(models.Model):
         return f"menu_item=[{self.menu_item.__str__()}]; time={self.timestamp}"
 
     def get_absolute_url(self):
-        return "/report"
+        return "/purchase"

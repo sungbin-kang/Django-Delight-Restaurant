@@ -106,26 +106,17 @@ class RecipeRequirementUpdateView(UpdateView):
         context["menuitem_title"] = self.kwargs["menuitem_title"]
         return context
 
-# class RecipeRequirementDeleteView(DeleteView):
-#     model = RecipeRequirement
-#     form_class = RecipeRequirementForm
-#     template_name = "inventory/recipe_delete_form.html"
-    
-#     def get_success_url(self):
-#         menuitem_title = self.kwargs["menuitem_title"]
-#         return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
-
 
 # ----------------------- PURCHASE --------------------------
 
 class PurchaseList(ListView):
     model = Purchase
-    template_name = "inventory/report_list.html"
+    template_name = "inventory/purchase_list.html"
 
 class PurchaseCreateView(CreateView):
     model = Purchase
     form_class = PurchaseForm
-    template_name = "inventory/report_add_form.html"
+    template_name = "inventory/purchase_add_form.html"
 
     # if required ingredient for menuitem not enough,
     # form input select option grayed out
@@ -148,22 +139,17 @@ class PurchaseCreateView(CreateView):
 
         return super().post(request, *args, **kwargs)
 
-# class ReportView(LoginRequiredMixin, TemplateView):
-#     template_name = "inventory/reports.html"
+class ReportView(TemplateView):
+    template_name = "inventory/report.html"
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["purchases"] = Purchase.objects.all()
-#         revenue = Purchase.objects.aggregate(
-#             revenue=Sum("menu_item__price"))["revenue"]
-#         total_cost = 0
-#         for purchase in Purchase.objects.all():
-#             for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
-#                 total_cost += recipe_requirement.ingredient.price_per_unit * \
-#                     recipe_requirement.quantity
+    # pass context revenue, total_cost, and profit
 
-#         context["revenue"] = revenue
-#         context["total_cost"] = total_cost
-#         context["profit"] = revenue - total_cost
+    # initialize purchases as all purchase objects
 
-#         return context
+    # revenue is the sum of all menu price of purchases
+
+    # for menu in purchases menu
+    #     for ingredeint in menu ingredient
+    #         add ingredeint unit per price times menu ingredeint required quantity
+    
+    # profit is revenue minus total_cost

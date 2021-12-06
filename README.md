@@ -109,14 +109,136 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 # Views and Templates
 
+## Base/Home Views
+
+`base.html`
 - a base template for all the other pages to inherit from, with common styling and a navbar linking to the other pages
+    - log in not required
+    - if logged in, welcome prompt shown 
+    - if not logged in, log in promt shown
+
+`home.html`
 - a home page
+    - extends base.html
+    - loggin required
+    - menu bar shown horizontal view that navigate to ingredients, menu, purchases and report
+- url: "" 
+- url name: "home"
+
+`menu-bar.html`
+- a menu-bar page
+    - extends base.html
+    - loggin required
+    - menu bar shown vertical view that navigate to ingredients, menu, purchases and report
+
+## List Views
+
+`ingredeint_list.html`
 - a page to view all ingredients in the inventory
+    - extends menu-bar.html
+    - loggin required
+- url: "ingredient/" 
+- url name: "ingredient_list"
+
+`menuitem_list.html`
 - a page to view the menu
+    - extends menu-bar.html
+    - loggin required
+- url: "menu/" 
+- url name: "menu_list"
+
+`recipe_list.html`
+- a page to view the menu recipe
+    - extends menu-bar.html
+    - loggin required
+- url: "menu/<menuitem_title>/recipe" 
+- url name: "recipe_list"
+
+`purchase_list.html`
 - a page to view the purchases made at the restaurant
+    - extends menu-bar.html
+    - loggin required
+- url: "purchase/" 
+- url name: "purchase_list"
+
+`report.html`
 - a page to view the profit and revenue report
+    - extends menu-bar.html
+    - loggin required
+    - the view passes context of profit revenue to the template
+- url: "report/" 
+- url name: "report"
+
+## Create Views
+
+`menuitem_add_form.html`
 - a page to add an item to the menu
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "menu/"
+- url: "menu/new" 
+- url name: "menu_add_form"
+
+`ingredeint_add_form.html`
 - a page to add an ingredient to the inventory
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "ingredeint/"
+- url: "ingredeint/new" 
+- url name: "ingredient_add_form"
+
+`recipe_add_form.html`
 - a page to add the recipe requirements for a menu item
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "menu/<menuitem_title>/recipe/"
+- url: "menu/<menuitem_title>/recipe/new" 
+- url name: "recipe_add_form"
+
+`purchase_add_form.html`
 - a page to record a new purchase of a menu item
+    - required quantity of ingredients for the menu item get subtracted from the in stock quantity
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "purchase/"
+- url: "purchase/new" 
+- url name: "purchase_add_form"
+
+## Update Views
+
+`ingredient_update_form.html`
 - a page to update the inventory for an existing ingredient
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "ingredient/"
+- url: "ingredeint/update/<pk>" 
+- url name: "ingredeint_update_form"
+
+`menu_update_form.html`
+- a page to update the menu for an existing menu
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "menu/"
+- url: "menu/update/<pk>" 
+- url name: "menuitem_update_form"
+
+`recipe_update_form.html`
+- a page to update the recipe for an existing menu recipe
+    - extends menu-bar.html
+    - loggin required
+    - success creation redirects to "menu/<menuitem_title>/recipe"
+- url: "menu/<menuitem_title>/update/<pk>" 
+- url name: "recipe_update_form"
+
+## Ragistration Views
+
+`login.html`
+- a page to login
+    - extends base.html
+- url: use django.contrib.auth.urls
+
+`signup.html`
+- a page to signup
+    - extends base.html
+- url: "account/signup/"
+- url name: "signup"
