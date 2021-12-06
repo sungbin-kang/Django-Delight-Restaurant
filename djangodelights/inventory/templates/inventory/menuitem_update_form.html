@@ -11,7 +11,6 @@
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Update">
-            <a href="{% url 'menuitem_delete' object.id %}"><button type="button">Delete</button></a>
         </form>
     </div>
 
