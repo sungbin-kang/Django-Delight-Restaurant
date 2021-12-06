@@ -127,18 +127,43 @@ class PurchaseCreateView(CreateView):
     form_class = PurchaseForm
     template_name = "inventory/report_add_form.html"
 
+    # if required ingredient for menuitem not enough,
+    # form input select option grayed out
 
-# class InventoryCreate(CreateView)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        available_menuitems = [X for X in MenuItem.objects.all() if X.available()]
+        context["available_menuitems"] = available_menuitems
+        return context
 
-# class InventoryUpdate(UpdateView)
+    def post(self, request, *args, **kwargs):
 
-# class MenuItmeCreate(CreateView)
+        menu_item_id = request.POST["menu_item"]
+        menu_item = MenuItem.objects.get(pk=menu_item_id)
+        
+        for required_recipe in menu_item.reciperequirement_set.all():
+            ingredient_in_stock = required_recipe.ingredient
+            ingredient_in_stock.quantity -= required_recipe.quantity
+            ingredient_in_stock.save()
 
-# class MenuItemUpdate(UpdateView)
+        return super().post(request, *args, **kwargs)
 
+class ReportView(LoginRequiredMixin, TemplateView):
+    template_name = "inventory/reports.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["purchases"] = Purchase.objects.all()
+        revenue = Purchase.objects.aggregate(
+            revenue=Sum("menu_item__price"))["revenue"]
+        total_cost = 0
+        for purchase in Purchase.objects.all():
+            for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
+                total_cost += recipe_requirement.ingredient.price_per_unit * \
+                    recipe_requirement.quantity
 
-# class PurchaseCreate(CreateView)
+        context["revenue"] = revenue
+        context["total_cost"] = total_cost
+        context["profit"] = revenue - total_cost
 
-# class PurchaseUpdate(UpdateView)
-
+        return context

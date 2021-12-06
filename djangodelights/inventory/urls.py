@@ -29,4 +29,7 @@ urlpatterns = [
     # report/
     path("report/", views.PurchaseList.as_view(), name="report_list"),
     path("report/new/", views.PurchaseCreateView.as_view(), name="report_add"),
+
+
+
 ]

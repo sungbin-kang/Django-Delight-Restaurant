@@ -12,7 +12,8 @@
         <p>Reports</p>
         <ul>
             {% for purchase in purchase_list %}
-                <li>{{ purchase }}</li>
+                <li>{{ purchase }} {{ purchase.id }}
+                </li>
             {% endfor %}
         </ul>
     </div>
