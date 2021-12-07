@@ -6,6 +6,7 @@ def convert_to_grams(quantity: float, unit: str):
     return quantity * units_per_gram[unit]
 
 
+# --------------------------------- MENU ITEM ---------------------------------
 
 class MenuItem(models.Model):
     """
@@ -27,6 +28,8 @@ class MenuItem(models.Model):
         self.title = self.title.lower()
         return super(MenuItem, self).save(*args, **kwargs)
 
+
+# -------------------------------- INGREDENT ----------------------------------
 
 class Ingredient(models.Model):
     """
@@ -73,6 +76,9 @@ class Ingredient(models.Model):
        
         return super(Ingredient, self).save(*args, **kwargs)
 
+
+# --------------------------- RECIPE REQURIEMENT ------------------------------
+
 class RecipeRequirement(models.Model):
     """
     Represents an ingredient required for a recipe for a MenuItem
@@ -86,6 +92,9 @@ class RecipeRequirement(models.Model):
 
     def enough(self):
         return self.quantity <= self.ingredient.quantity
+
+
+# --------------------------------- PURCHASE ---------------------------------
 
 class Purchase(models.Model):
     """
