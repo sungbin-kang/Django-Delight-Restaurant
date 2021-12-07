@@ -28,8 +28,5 @@ urlpatterns = [
     # report/
     path("report/", views.ReportView.as_view(), name="report"),
     
-    
-
-
 
 ]

@@ -142,6 +142,13 @@ class PurchaseCreateView(CreateView):
 class ReportView(TemplateView):
     template_name = "inventory/report.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # ....Working on how to get sum of revenue....
+
+        return context
+
     # pass context revenue, total_cost, and profit
 
     # initialize purchases as all purchase objects

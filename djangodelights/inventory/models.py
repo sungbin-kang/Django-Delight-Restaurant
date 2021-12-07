@@ -42,6 +42,10 @@ class Ingredient(models.Model):
         unit={self.unit};
         unit_price={self.price_per_unit}
         """
+    
+    def save(self, *args, **kwargs):
+        self.name = self.name.lower()
+        return super(Ingredient, self).save(*args, **kwargs)
 
 class RecipeRequirement(models.Model):
     """
