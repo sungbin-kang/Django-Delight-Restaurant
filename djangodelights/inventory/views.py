@@ -1,4 +1,4 @@
-from django.db.models import query
+from django.db.models import query, Sum
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
@@ -145,7 +145,26 @@ class ReportView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # ....Working on how to get sum of revenue....
+        purchases = Purchase.objects.all()
+
+        revenue = purchases.aggregate(Sum("menu_item__price"))['menu_item__price__sum']
+
+        if revenue == None:
+            revenue = 0
+
+        total_cost = 0
+
+        for purchase in purchases:
+            for recipe in purchase.menu_item.reciperequirement_set.all():
+                required_quantity = recipe.quantity
+                price_per_unit = recipe.ingredient.price_per_unit
+                total_cost += required_quantity * price_per_unit
+
+        profit = revenue - total_cost
+
+        context["revenue"] = revenue
+        context["total_cost"] = total_cost
+        context["profit"] = profit
 
         return context
 

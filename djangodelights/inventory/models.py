@@ -1,5 +1,11 @@
 from django.db import models
 
+units_per_gram = {"grams": 1, "kilograms": 1000, "pounds": 453.592, "ounce": 28.35}
+
+def convert_to_grams(quantity: float, unit: str):
+    return quantity * units_per_gram[unit]
+
+
 
 class MenuItem(models.Model):
     """
@@ -28,12 +34,26 @@ class Ingredient(models.Model):
     """
     name = models.CharField(max_length=200, unique=True)
     quantity = models.FloatField(default=0)
-    unit = models.CharField(max_length=200)
+    # unit = models.CharField(max_length=200)
+
+    GRAM = "grams"
+    KILOGRAM = "kilograms"
+    POUND = "pounds"
+    OUNCE = "ounce"
+    COUNT = "counts"
+    UNITS_CHOICES = {
+        (GRAM, "gram"),
+        (KILOGRAM, "kilogram"),
+        (POUND, "pound"),
+        (OUNCE, "ounce"),
+        (COUNT, "count"),
+    }
+    unit = models.CharField(max_length=10,choices=UNITS_CHOICES, default=GRAM)
+
     price_per_unit = models.FloatField(default=0)
 
     def get_absolute_url(self):
         return "/ingredient"
-    
 
     def __str__(self):
         return f"""
@@ -45,6 +65,12 @@ class Ingredient(models.Model):
     
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
+        
+        if self.unit in units_per_gram:
+            self.quantity = convert_to_grams(self.quantity, self.unit)
+            self.price_per_unit /= self.quantity
+            self.unit = "grams"
+       
         return super(Ingredient, self).save(*args, **kwargs)
 
 class RecipeRequirement(models.Model):
@@ -57,9 +83,6 @@ class RecipeRequirement(models.Model):
 
     def __str__(self):
         return f"menu_item=[{self.menu_item.__str__()}]; ingredient={self.ingredient.name}; qty={self.quantity}"
-    
-    # def get_absolute_url(self):
-    #     return "/menu"
 
     def enough(self):
         return self.quantity <= self.ingredient.quantity
