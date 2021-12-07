@@ -5,9 +5,8 @@
 
 {% block subcontent %}
     <p>This is menuitem_update_form.html</p>
-
     <div>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Update">

@@ -14,6 +14,7 @@ class MenuItem(models.Model):
     """
     title = models.CharField(max_length=200, unique=True)
     price = models.FloatField(default=0.00)
+    image = models.ImageField(blank=True, null=True, upload_to="menuitem_images/")
 
     def get_absolute_url(self):
         return "/menu"
@@ -37,7 +38,6 @@ class Ingredient(models.Model):
     """
     name = models.CharField(max_length=200, unique=True)
     quantity = models.FloatField(default=0)
-    # unit = models.CharField(max_length=200)
 
     GRAM = "grams"
     KILOGRAM = "kilograms"
