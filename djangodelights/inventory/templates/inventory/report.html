@@ -3,8 +3,8 @@
 {% block subcontent %}
 <h1>This is report.html </h1>
 
-<p>revenue: {{ revenue }}</p>
-<p>total cost: {{ total_cost }}</p>
-<p>profit: {{ profit }}</p>
+<p>revenue: {{ revenue|floatformat:2 }}</p>
+<p>total cost: {{ total_cost|floatformat:2 }}</p>
+<p>profit: {{ profit|floatformat:2 }}</p>
 
 {% endblock subcontent %}

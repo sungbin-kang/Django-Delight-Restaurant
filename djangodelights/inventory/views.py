@@ -24,7 +24,7 @@ class SignUp(CreateView):
 
 # *** all functions and classes requires login *** 
 
-# ----------------------- MENU ITEM -------------------------
+# --------------------------------- MENU ITEM ---------------------------------
 class MenuItemList(ListView):
     model = MenuItem
 
@@ -45,7 +45,7 @@ class MenuItemUpdateView(UpdateView):
 #     success_url = "/menu"
 
 
-# ----------------------- INGREDENT -------------------------
+# -------------------------------- INGREDENT ----------------------------------
 
 class IngredientList(ListView):
     model = Ingredient
@@ -67,7 +67,7 @@ class IngredientUpdateView(UpdateView):
 #     success_url = "/ingredient"
 
 
-# ------------------- RECIPE REQURIEMENT --------------------
+# --------------------------- RECIPE REQURIEMENT ------------------------------
 class RecipeRequirementList(ListView):
     model = RecipeRequirement
     template_name = "inventory/recipe_list.html"
@@ -107,7 +107,7 @@ class RecipeRequirementUpdateView(UpdateView):
         return context
 
 
-# ----------------------- PURCHASE --------------------------
+# --------------------------------- PURCHASE ---------------------------------
 
 class PurchaseList(ListView):
     model = Purchase
@@ -139,6 +139,9 @@ class PurchaseCreateView(CreateView):
 
         return super().post(request, *args, **kwargs)
 
+
+# ----------------------------------- REPORT ---------------------------------
+
 class ReportView(TemplateView):
     template_name = "inventory/report.html"
 
@@ -168,14 +171,7 @@ class ReportView(TemplateView):
 
         return context
 
-    # pass context revenue, total_cost, and profit
 
-    # initialize purchases as all purchase objects
-
-    # revenue is the sum of all menu price of purchases
-
-    # for menu in purchases menu
-    #     for ingredeint in menu ingredient
-    #         add ingredeint unit per price times menu ingredeint required quantity
-    
-    # profit is revenue minus total_cost
+# --------------------------------- LOGOUT -----------------------------------
+def logout_view(request):
+    logout(request)
