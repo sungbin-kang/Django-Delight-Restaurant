@@ -17,23 +17,26 @@ def home(request):
     context = {}
     return render(request, "inventory/home.html", context)
 
+
 class SignUp(CreateView):
     form_class = UserCreationForm
     template_name = "registration/signup.html"
     success_url = reverse_lazy("login")
 
-# *** all functions and classes requires login *** 
 
 # --------------------------------- MENU ITEM ---------------------------------
-class MenuItemList(ListView):
+
+class MenuItemList(LoginRequiredMixin, ListView):
     model = MenuItem
 
-class MenuItemCreateView(CreateView):
+
+class MenuItemCreateView(LoginRequiredMixin, CreateView):
     model = MenuItem
     form_class = MenuItemForm
     template_name = "inventory/menuitem_add_form.html"
 
-class MenuItemUpdateView(UpdateView):
+
+class MenuItemUpdateView(LoginRequiredMixin, UpdateView):
     model = MenuItem
     form_class = MenuItemForm
     template_name = "inventory/menuitem_update_form.html"
@@ -47,18 +50,21 @@ class MenuItemUpdateView(UpdateView):
 
 # -------------------------------- INGREDENT ----------------------------------
 
-class IngredientList(ListView):
+class IngredientList(LoginRequiredMixin, ListView):
     model = Ingredient
 
-class IngredientCreateView(CreateView):
+
+class IngredientCreateView(LoginRequiredMixin, CreateView):
     model = Ingredient
     form_class = IngredientForm
     template_name = "inventory/ingredient_add_form.html"
 
-class IngredientUpdateView(UpdateView):
+
+class IngredientUpdateView(LoginRequiredMixin, UpdateView):
     model = Ingredient
     form_class = IngredientForm
     template_name = "inventory/ingredient_update_form.html"
+
 
 # class IngredientDeleteView(DeleteView):
 #     model = Ingredient
@@ -68,7 +74,8 @@ class IngredientUpdateView(UpdateView):
 
 
 # --------------------------- RECIPE REQURIEMENT ------------------------------
-class RecipeRequirementList(ListView):
+
+class RecipeRequirementList(LoginRequiredMixin, ListView):
     model = RecipeRequirement
     template_name = "inventory/recipe_list.html"
 
@@ -83,7 +90,8 @@ class RecipeRequirementList(ListView):
         context["menuitem_title"] = self.kwargs["menuitem_title"]
         return context
 
-class RecipeRequirementCreateView(CreateView):
+
+class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_add_form.html"
@@ -92,7 +100,8 @@ class RecipeRequirementCreateView(CreateView):
         menuitem_title = self.kwargs["menuitem_title"]
         return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
 
-class RecipeRequirementUpdateView(UpdateView):
+
+class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_update_form.html"
@@ -109,11 +118,12 @@ class RecipeRequirementUpdateView(UpdateView):
 
 # --------------------------------- PURCHASE ---------------------------------
 
-class PurchaseList(ListView):
+class PurchaseList(LoginRequiredMixin, ListView):
     model = Purchase
     template_name = "inventory/purchase_list.html"
 
-class PurchaseCreateView(CreateView):
+
+class PurchaseCreateView(LoginRequiredMixin, CreateView):
     model = Purchase
     form_class = PurchaseForm
     template_name = "inventory/purchase_add_form.html"
@@ -142,7 +152,7 @@ class PurchaseCreateView(CreateView):
 
 # ----------------------------------- REPORT ---------------------------------
 
-class ReportView(TemplateView):
+class ReportView(LoginRequiredMixin, TemplateView):
     template_name = "inventory/report.html"
 
     def get_context_data(self, **kwargs):
@@ -173,5 +183,6 @@ class ReportView(TemplateView):
 
 
 # --------------------------------- LOGOUT -----------------------------------
+
 def logout_view(request):
     logout(request)
