@@ -1,24 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
+
 <head>
-    {% load static %}
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/base.css' %}">
     <title>Django Delight Restaurant</title>
 </head>
 
 <body>
-  <h1>This is base.html</h1>
-
-  <a href="{% url 'home' %}"><p>Home</p></a>
-
-  <div class="login-logout-signup-section">
+  <div class="header">
+    <h1><a id="home-icon" href="{% url 'home' %}">Home</a> This is base.html</h1>
+    
     {% if user.username %}
-        <p>Welcome {{ user.username }}</p>
-        <a class="logout-button" href="{% url 'logout' %}">Log Out</a>
+        <h2>Welcome {{ user.username }} :)</h2>
+        <a id="button" href="{% url 'logout' %}">Logout</a>
     {% else %}
-        <a class="login-button" href="{% url 'login' %}">Log In</a> 
-        <a class="signup-button" href="{% url 'signup' %}">Sign Up</a>
+        <a id="button" href="{% url 'login' %}">Login</a> 
+        <a id="button" href="{% url 'signup' %}">Register</a>
     {% endif %}
-</div>
+  </div>
 
   {% block content %}
   {% endblock content %}
