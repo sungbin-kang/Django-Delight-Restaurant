@@ -7,7 +7,7 @@
     <p>This is home.html</p>
 
     {% if user.is_authenticated %}
-        <div class="horizontal-menu-bar">
+        <div class="menu-bar">
             <ul>
                 <a href="{% url 'menuitem_list' %}"><li>Menu</li></a>
                 <a href="{% url 'ingredient_list' %}"><li>Ingredient</li></a>
@@ -15,6 +15,10 @@
                 <a href="{% url 'report' %}"><li>Report</li></a>
             </ul>
         </div>
+
+        {% block subcontent %}
+        {% endblock subcontent %}
+
     {% endif %}
 
 {% endblock %}

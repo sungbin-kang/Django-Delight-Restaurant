@@ -1,25 +1,27 @@
-{% extends "inventory/menu-bar.html"%}
+{% extends "inventory/home.html"%}
 
 {% block head %}
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is menuitem_list.html</p>
+    <div class="menuitem-list">
 
-    <a href="{% url 'menuitem_add' %}"><p>Add Menu</p></a>
+        <a id="add-button" href="{% url 'menuitem_add' %}">Add Menu</a>
 
-    <ul>
-        {% for menuitem in menuitem_list %}
-            <li>{{ menuitem }}
+        <ul>
+            {% for menuitem in menuitem_list %}
+                <li>
+                    {% if menuitem.image %}
+                        <img src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" >
+                    {% endif %}
+                    {{ menuitem.title|title }}
+                    ${{ menuitem.price|floatformat:2 }}
+                    
+                    <a href="{% url 'menuitem_update' menuitem.id %}">Edit Menu</a>
+                    <a href="{% url 'recipe_list' menuitem.title|slugify %}"><p>View Recipe</p></a> 
+                </li>
+            {% endfor %}
+        </ul>
 
-                {% if menuitem.image %}
-                    <img src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" >
-                {% endif %}
-                
-                <a href="{% url 'menuitem_update' menuitem.id %}">Edit Menu</a>
-                <a href="{% url 'recipe_list' menuitem.title|slugify %}"><p>View Recipe</p></a> </li>
-        {% endfor %}
-    </ul>
-
-
+    </div> 
 {% endblock subcontent %}

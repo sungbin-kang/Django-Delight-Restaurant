@@ -15,10 +15,7 @@
         - <a> id="button"
 
 ### `home.html`
-- <div> class="horizontal-menu-bar"
-
-### `menu-bar.html`
-- <div> class="vertical-menu-bar"
+- <div> class="menu-bar"
 
 
 
@@ -26,6 +23,15 @@
 
 
 ### `menuitem_list.html`
+- <div> class="menuitem-list"
+    - <a> id="add-button"
+    - <ul>
+        - <il>
+            - <img>
+                - <a> id="view-button" darkens the image and link to view the recipe
+            - menu title
+            - menu price
+            - <a> id="edit-button"
 
 
 ### `recipe_list.html`

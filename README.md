@@ -125,45 +125,40 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 - url: "" 
 - url name: "home"
 
-`menu-bar.html`
-- a menu-bar page
-    - extends base.html
-    - loggin required
-    - menu bar shown vertical view that navigate to ingredients, menu, purchases and report
 
 ## List Views
 
 `ingredeint_list.html`
 - a page to view all ingredients in the inventory
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
 - url: "ingredient/" 
 - url name: "ingredient_list"
 
 `menuitem_list.html`
 - a page to view the menu
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
 - url: "menu/" 
 - url name: "menu_list"
 
 `recipe_list.html`
 - a page to view the menu recipe
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
 - url: "menu/<menuitem_title>/recipe" 
 - url name: "recipe_list"
 
 `purchase_list.html`
 - a page to view the purchases made at the restaurant
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
 - url: "purchase/" 
 - url name: "purchase_list"
 
 `report.html`
 - a page to view the profit and revenue report
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - the view passes context of profit revenue to the template
 - url: "report/" 
@@ -173,7 +168,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `menuitem_add_form.html`
 - a page to add an item to the menu
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "menu/"
 - url: "menu/new" 
@@ -181,7 +176,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `ingredeint_add_form.html`
 - a page to add an ingredient to the inventory
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "ingredeint/"
 - url: "ingredeint/new" 
@@ -189,7 +184,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `recipe_add_form.html`
 - a page to add the recipe requirements for a menu item
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "menu/<menuitem_title>/recipe/"
 - url: "menu/<menuitem_title>/recipe/new" 
@@ -198,7 +193,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 `purchase_add_form.html`
 - a page to record a new purchase of a menu item
     - required quantity of ingredients for the menu item get subtracted from the in stock quantity
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "purchase/"
 - url: "purchase/new" 
@@ -208,7 +203,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `ingredient_update_form.html`
 - a page to update the inventory for an existing ingredient
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "ingredient/"
 - url: "ingredeint/update/<pk>" 
@@ -216,7 +211,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `menu_update_form.html`
 - a page to update the menu for an existing menu
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "menu/"
 - url: "menu/update/<pk>" 
@@ -224,7 +219,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 `recipe_update_form.html`
 - a page to update the recipe for an existing menu recipe
-    - extends menu-bar.html
+    - extends home.html
     - loggin required
     - success creation redirects to "menu/<menuitem_title>/recipe"
 - url: "menu/<menuitem_title>/update/<pk>" 

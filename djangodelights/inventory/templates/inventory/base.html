@@ -8,19 +8,22 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1><a id="home-icon" href="{% url 'home' %}">Home</a> This is base.html</h1>
-    
-    {% if user.username %}
-        <h2>Welcome {{ user.username }} :)</h2>
-        <a id="button" href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <a id="button" href="{% url 'login' %}">Login</a> 
-        <a id="button" href="{% url 'signup' %}">Register</a>
-    {% endif %}
-  </div>
+    <div class="header">
+        {% if user.username %}
+            <p>Welcome {{ user.username }} :) <a id="button" href="{% url 'logout' %}">Logout</a></p>
+            
+        {% else %}
+            <a id="button" href="{% url 'login' %}">Login</a> 
+            <a id="button" href="{% url 'signup' %}">Register</a>
+        {% endif %}
 
-  {% block content %}
-  {% endblock content %}
+        <h1>
+            <a id="home-icon" href="{% url 'home' %}">Home</a> 
+            Django Delight Restaurant
+        </h1>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
 
 </body>
