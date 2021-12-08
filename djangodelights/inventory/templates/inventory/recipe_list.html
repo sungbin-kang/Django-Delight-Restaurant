@@ -6,9 +6,9 @@
 {% block subcontent %}
 <div class="recipe-list">
 
-    <h3>{{ menuitem_title|title }} Recipe</h3>
+    <h3>{{ menuitem.title|title }} Recipe</h3>
 
-    <a href="{% url 'recipe_add' menuitem_title|slugify %}"><p>Add Recipe</p></a>
+    <a href="{% url 'recipe_add' menuitem.title|slugify %}"><p>Add Recipe</p></a>
 
     <ul>
         {% for recipe in reciperequirement_list %}
@@ -16,7 +16,7 @@
                 {{ recipe.quantity }}
                 {{ recipe.ingredient.name|title }} 
 
-                <a href="{% url 'recipe_update' menuitem_title=menuitem_title|slugify pk=recipe.id %}">Edit Recipe</a>
+                <a href="{% url 'recipe_update' menuitem_title=menuitem.title|slugify pk=recipe.id %}">Edit Recipe</a>
             </li>
         {% endfor %}
     </ul>
