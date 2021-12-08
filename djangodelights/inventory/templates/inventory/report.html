@@ -1,10 +1,11 @@
 {% extends "inventory/home.html"%}
 
 {% block subcontent %}
-<h1>This is report.html </h1>
+<div class="report">
+    <h3>Report</h3>
 
-<p>revenue: {{ revenue|floatformat:2 }}</p>
-<p>total cost: {{ total_cost|floatformat:2 }}</p>
-<p>profit: {{ profit|floatformat:2 }}</p>
+    <p>Revenue: ${{ revenue|floatformat:2 }}</p>
+    <p>Profit: ${{ profit|floatformat:2 }}</p>
 
+</div>
 {% endblock subcontent %}

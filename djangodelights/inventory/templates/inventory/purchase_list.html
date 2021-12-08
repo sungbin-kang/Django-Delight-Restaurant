@@ -4,18 +4,19 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is purchase_list.html</p>
+<div class="purchase-list">
+
+    <h3>Purchases</h3>
 
     <a href="{% url 'purchase_add' %}"><p>Add Purchase</p></a>
 
-    <div>
-        <p>Reports</p>
-        <ul>
-            {% for purchase in purchase_list %}
-                <li>{{ purchase }} {{ purchase.id }}
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <p>Reports</p>
+    <ul>
+        {% for purchase in purchase_list %}
+            <li>{{ purchase }} {{ purchase.id }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock subcontent %}

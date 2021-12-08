@@ -4,16 +4,22 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is recipe_list.html</p>
+<div class="recipe-list">
 
-    <a href="{% url 'recipe_add' menuitem_title %}"><p>Add Recipe</p></a>
+    <h3>{{ menuitem_title|title }} Recipe</h3>
+
+    <a href="{% url 'recipe_add' menuitem_title|slugify %}"><p>Add Recipe</p></a>
 
     <ul>
         {% for recipe in reciperequirement_list %}
-            <li>{{ recipe }} {{ recipe.id }}
-                <a href="{% url 'recipe_update' menuitem_title=menuitem_title pk=recipe.id %}">Edit Recipe</a>
+            <li>{{ recipe.ingredient.name|title }} 
+                {{ recipe.quantity }}
+                {{ recipe.ingredient.name|title }} 
+
+                <a href="{% url 'recipe_update' menuitem_title=menuitem_title|slugify pk=recipe.id %}">Edit Recipe</a>
             </li>
         {% endfor %}
     </ul>
 
+</div>
 {% endblock subcontent %}

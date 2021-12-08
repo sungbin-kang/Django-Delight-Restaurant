@@ -87,7 +87,7 @@ class RecipeRequirementList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["menuitem_title"] = self.kwargs["menuitem_title"]
+        context["menuitem_title"] = self.kwargs["menuitem_title"].replace("-", " ")
         return context
 
 

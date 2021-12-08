@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is ingredient_list.html</p>
+<div class="ingredient-list">
+
+    <h3>Ingredients</h3>
 
     <a href="{% url 'ingredient_add' %}"><p>Add Ingredient</p></a>
 
@@ -16,4 +18,5 @@
         {% endfor %}
     </ul>
 
+</div>
 {% endblock subcontent %}

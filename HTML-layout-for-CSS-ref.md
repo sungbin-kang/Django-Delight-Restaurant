@@ -12,7 +12,7 @@
         - <h1>
             - <a> id="home-icon"
         - <h2> Welcome prompt
-        - <a> id="button"
+        - <button> id="button"
 
 ### `home.html`
 - <div> class="menu-bar"
@@ -24,26 +24,58 @@
 
 ### `menuitem_list.html`
 - <div> class="menuitem-list"
-    - <a> id="add-button"
+    - <h2> Menu
+    - <button> id="add-button" links to menuitem_add_form
     - <ul>
         - <il>
             - <img>
                 - <a> id="view-button" darkens the image and link to view the recipe
             - menu title
             - menu price
-            - <a> id="edit-button"
+            - <button> id="edit-button" links to menuitem_update_form
 
 
 ### `recipe_list.html`
+- <div> class="recipe-list"
+    - <h3>Recipe
+    - <button> id="add-button" links to recipe_add_form
+    - <ul>
+        - <il>
+            - required ingredient for the recipe
+            - required quantity for the recipe
+            - <button> id="edit-button" links to recipe_update_form
 
 
 ### `ingredeint_list.html`
+- <div> class="ingredient-list"
+    - <h3>Ingredients
+    - <button> id="add-button"
+    - <ul>
+        - <il>
+            - ingredient name
+            - in stock quantity
+            - grayed out text if out of stock
+            - <button> id="edit-button"
 
 
 ### `purchase_list.html`
+- <div> class="purchase-list"
+    - <h3> Purchase
+    - <button> id="add-button"
+    - <ul>
+        - <il>
+            - purchased menuitem
+            - purchased timestamp
 
 
 ### `report.html`
+- <div> class="report"
+    - <h3> Report
+    - <ul>
+        - <il>
+            - Revenue
+            - Profit
+
 
 
 
