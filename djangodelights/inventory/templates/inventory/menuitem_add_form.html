@@ -4,13 +4,15 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is menuitem_add_form.html</p>
-    <div>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Create">
-        </form>
-    </div>
+<div class="menuitem-add">
 
+    <h3>Create New Menu Item</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create">
+    </form>
+
+</div>
 {% endblock subcontent %}

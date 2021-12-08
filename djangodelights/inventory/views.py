@@ -97,6 +97,14 @@ class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_add_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
+        menuitem = MenuItem.objects.get(title=menuitem_title)
+        context["menuitem"] = menuitem
+        return context
+
     
     def get_success_url(self):
         menuitem_title = self.kwargs["menuitem_title"]

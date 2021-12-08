@@ -82,16 +82,33 @@
 
 ## Create Views
 
-### `recipe_add_form.html`
-
-
 ### `menuitem_add_form.html`
+- <div> class="menuitem-add"
+    - <h3> Create New Menu Item
+    - <form>
+        - <input>
+
+
+### `recipe_add_form.html`
+- <div> class="recipe-add"
+    - <h3> Add an Ingredient for the Menu Recipe
+    - <form>
+        - <input>
+    
 
 
 ### `ingredeint_add_form.html`
+- <div> class="ingredient-add"
+    - <h3> Add New Ingredient Item
+    - <form>
+        - <input>
 
 
 ### `purchase_add_form.html`
+- <div> class="purchase-add"
+    - <h3> Purchase Menu Item
+    - <form>
+        - <input>
 
 
 
