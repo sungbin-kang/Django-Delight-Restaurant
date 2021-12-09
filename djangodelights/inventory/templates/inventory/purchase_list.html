@@ -13,7 +13,8 @@
     <p>Reports</p>
     <ul>
         {% for purchase in purchase_list %}
-            <li>{{ purchase }} {{ purchase.id }}
+            <li>{{ purchase.menu_item.title|title }}
+                {{ purchase.timestamp }}
             </li>
         {% endfor %}
     </ul>

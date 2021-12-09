@@ -11,9 +11,10 @@
     <a href="{% url 'ingredient_add' %}"><p>Add Ingredient</p></a>
 
     <ul>
-        {% for ingredient in ingredient_list %}
-            <li>{{ ingredient }} {{ ingredient.id }}
-                <a href="{% url 'ingredient_update' ingredient.id %}">Edit Ingredient</a>
+        {% for ingredient in ingredient_list|dictsort:"name" %}
+            <li>{{ ingredient.name|title }}
+                {{ ingredient.quantity }} {{ ingredient.unit }}
+                <a href="{% url 'ingredient_update' ingredient.id %}">Edit</a>
             </li>
         {% endfor %}
     </ul>

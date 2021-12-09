@@ -4,14 +4,15 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is ingredient_add_form.html</p>
+<div class="ingredient-add">
 
-    <div>
+    <h3>Add New Ingredient Item</h3>
+
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Create">
+            <input id="add-button" type="submit" value="Add">
         </form>
-    </div>
 
+</div>
 {% endblock subcontent %}

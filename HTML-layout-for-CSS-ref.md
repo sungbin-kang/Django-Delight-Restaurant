@@ -60,7 +60,7 @@
 
 ### `purchase_list.html`
 - <div> class="purchase-list"
-    - <h3> Purchase
+    - <h3> Purchases
     - <button> id="add-button"
     - <ul>
         - <il>
@@ -84,16 +84,18 @@
 
 ### `menuitem_add_form.html`
 - <div> class="menuitem-add"
-    - <h3> Create New Menu Item
+    - <h3> Add New Menu Item
     - <form>
-        - <input>
+        - <input> id="add-button"
 
 
 ### `recipe_add_form.html`
 - <div> class="recipe-add"
-    - <h3> Add an Ingredient for the Menu Recipe
+    - <h3> Add New Ingredient for the Menu Recipe
+    <!-- Work on this feature... -->
+    - <img>
     - <form>
-        - <input>
+        - <input> id="add-button"
     
 
 
@@ -101,30 +103,52 @@
 - <div> class="ingredient-add"
     - <h3> Add New Ingredient Item
     - <form>
-        - <input>
+        - <input> id="add-button"
 
 
 ### `purchase_add_form.html`
 - <div> class="purchase-add"
     - <h3> Purchase Menu Item
     - <form>
-        - <input>
+        - <label>
+        - <selection>
+        - <option>
+            - Show all options but gray out unavailable menu item
+        - <input> id="add-button"
 
 
 
 
 ## Update Views
 
-
 ### `menu_update_form.html`
+- <div> class="menuitem-update"
+    - <h3> Update Menu
+    - <form>
+        - <input> id="update-button"
 
 
 ### `recipe_update_form.html`
+- <div> class="recipe-update"
+    - <h3> Update Quantity
+    - <form>
+        - <input> id="update-button"
+        <!-- Work on this feature... -->
+        - <button> id="delete-button"
 
 
 ### `ingredient_update_form.html`
+- <div> class="ingredient-update"
+    - <h3> Update Ingredient
+    - <form>
+        - <input> id="update-button"
 
 
+<!-- Add Delete Views section to README.md -->
+<!-- Work on Delete Views section... -->
+## Delete Views
+
+### `recipe_delete_form.html`
 
 
 ## Ragistration Views

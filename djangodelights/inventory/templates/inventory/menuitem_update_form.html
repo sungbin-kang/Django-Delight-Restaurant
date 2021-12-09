@@ -4,13 +4,15 @@
 {% endblock %}
 
 {% block subcontent %}
-    <p>This is menuitem_update_form.html</p>
-    <div>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Update">
-        </form>
-    </div>
+<div class="menuitem-update">
 
+    <h3>Update Menu</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input id="update-button" type="submit" value="Update">
+    </form>
+
+</div>
 {% endblock subcontent %}
