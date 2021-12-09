@@ -1,0 +1,18 @@
+{% extends "inventory/home.html"%}
+
+{% block head %}
+{% endblock %}
+
+{% block subcontent %}
+<div class="recipe-delete">
+
+    <h3>Delete {{reciperequirement.ingredient.name|title }} from {{ menuitem.title|title }} Recipe</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete">
+    </form>
+
+</div>
+{% endblock subcontent %}
