@@ -66,13 +66,6 @@ class IngredientUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "inventory/ingredient_update_form.html"
 
 
-# class IngredientDeleteView(DeleteView):
-#     model = Ingredient
-#     form_class = IngredientForm
-#     template_name = "inventory/ingredient_delete_form.html"
-#     success_url = "/ingredient"
-
-
 # --------------------------- RECIPE REQURIEMENT ------------------------------
 
 class RecipeRequirementList(LoginRequiredMixin, ListView):
@@ -98,10 +91,6 @@ class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_add_form.html"
 
-    def get_success_url(self):
-        menuitem_title = self.kwargs["menuitem_title"]
-        return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
@@ -114,10 +103,6 @@ class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):
     model = RecipeRequirement
     form_class = RecipeRequirementForm
     template_name = "inventory/recipe_update_form.html"
-
-    def get_success_url(self):
-        menuitem_title = self.kwargs["menuitem_title"]
-        return reverse("recipe_list", kwargs={"menuitem_title": menuitem_title})
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

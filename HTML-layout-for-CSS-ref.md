@@ -133,7 +133,6 @@
     - <h3> Update Quantity
     - <form>
         - <input> id="update-button"
-        <!-- Work on this feature... -->
         - <button> id="delete-button"
 
 
@@ -145,10 +144,14 @@
 
 
 <!-- Add Delete Views section to README.md -->
-<!-- Work on Delete Views section... -->
+
 ## Delete Views
 
 ### `recipe_delete_form.html`
+- <div> class="recipe-delete"
+    - <h3> Delete item from menu
+    - <form>
+        - <input> id="delete_button"
 
 
 ## Ragistration Views

@@ -172,7 +172,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "menu/"
 - url: "menu/new" 
-- url name: "menu_add_form"
+- url name: "menu_add"
 
 `ingredeint_add_form.html`
 - a page to add an ingredient to the inventory
@@ -180,7 +180,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "ingredeint/"
 - url: "ingredeint/new" 
-- url name: "ingredient_add_form"
+- url name: "ingredient_add"
 
 `recipe_add_form.html`
 - a page to add the recipe requirements for a menu item
@@ -188,7 +188,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "menu/<menuitem_title>/recipe/"
 - url: "menu/<menuitem_title>/recipe/new" 
-- url name: "recipe_add_form"
+- url name: "recipe_add"
 
 `purchase_add_form.html`
 - a page to record a new purchase of a menu item
@@ -197,7 +197,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "purchase/"
 - url: "purchase/new" 
-- url name: "purchase_add_form"
+- url name: "purchase_add"
 
 ## Update Views
 
@@ -207,7 +207,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "ingredient/"
 - url: "ingredeint/update/<pk>" 
-- url name: "ingredeint_update_form"
+- url name: "ingredeint_update"
 
 `menu_update_form.html`
 - a page to update the menu for an existing menu
@@ -215,7 +215,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "menu/"
 - url: "menu/update/<pk>" 
-- url name: "menuitem_update_form"
+- url name: "menuitem_update"
 
 `recipe_update_form.html`
 - a page to update the recipe for an existing menu recipe
@@ -223,7 +223,17 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
     - loggin required
     - success creation redirects to "menu/<menuitem_title>/recipe"
 - url: "menu/<menuitem_title>/update/<pk>" 
-- url name: "recipe_update_form"
+- url name: "recipe_update"
+
+## Delete Views
+`recipe_delete_form.html`
+- a page to delete the recipe for an existing menu recipe
+    - extends home.html
+    - loggin required
+    - success creation redirects to "menu/<menuitem_title>/recipe"
+- url: "menu/<menuitem_title>/delete/<pk>" 
+- url name: "recipe_delete"
+
 
 ## Ragistration Views
 

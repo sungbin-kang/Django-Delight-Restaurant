@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 units_per_gram = {"grams": 1, "kilograms": 1000, "pounds": 453.592, "ounce": 28.35}
 
@@ -92,6 +93,10 @@ class RecipeRequirement(models.Model):
 
     def enough(self):
         return self.quantity <= self.ingredient.quantity
+
+    def get_absolute_url(self):
+        return reverse("recipe_list", kwargs={"menuitem_title": self.menu_item.title.replace(" ", "-")})
+    
 
 
 # --------------------------------- PURCHASE ---------------------------------
