@@ -6,14 +6,15 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="menu-bar">
-    <ul>
-        <a href="{% url 'menuitem_list' %}"><li>Menu</li></a>
-        <a href="{% url 'ingredient_list' %}"><li>Ingredient</li></a>
-        <a href="{% url 'purchase_list' %}"><li>Purchase</li></a>
-        <a href="{% url 'report' %}"><li>Report</li></a>
-    </ul>
-</div>
+<body>
+    <nav class="menu-bar">
+        <a href="{% url 'menuitem_list' %}">Menu</a>
+        <a href="{% url 'ingredient_list' %}">Ingredient</a>
+        <a href="{% url 'purchase_list' %}">Purchase</a>
+        <a href="{% url 'report' %}">Report</a>
+        <div class="dot"></div>
+    </nav>
+</body
 
 {% block subcontent %}
 {% endblock subcontent %}

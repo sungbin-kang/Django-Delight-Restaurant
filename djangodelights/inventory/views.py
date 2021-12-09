@@ -66,6 +66,7 @@ class IngredientUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "inventory/ingredient_update_form.html"
 
 
+
 # --------------------------- RECIPE REQURIEMENT ------------------------------
 
 class RecipeRequirementList(LoginRequiredMixin, ListView):
@@ -97,7 +98,12 @@ class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
         menuitem = MenuItem.objects.get(title=menuitem_title)
         context["menuitem"] = menuitem
         return context
-
+    
+    def get_initial(self):
+        initial = super().get_initial()
+        menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
+        initial["menu_item"]  = MenuItem.objects.get(title=menuitem_title)
+        return initial
 
 class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):
     model = RecipeRequirement
@@ -110,6 +116,12 @@ class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):
         menuitem = MenuItem.objects.get(title=menuitem_title)
         context["menuitem"] = menuitem
         return context
+
+    def get_initial(self):
+        initial = super().get_initial()
+        menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
+        initial["menu_item"]  = MenuItem.objects.get(title=menuitem_title)
+        return initial
 
 
 class RecipeRequirementDeleteView(LoginRequiredMixin, DeleteView):
