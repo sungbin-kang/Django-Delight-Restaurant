@@ -6,9 +6,10 @@
 {% block subcontent %}
 <div class="recipe-list">
 
-    <h3>{{ menuitem.title|title }} Recipe</h3>
-
-    <a href="{% url 'recipe_add' menuitem.title|slugify %}"><p>Add Recipe</p></a>
+    <div class="sub-header">
+        <h3>{{ menuitem.title|title }} Recipe</h3>
+        <a class="add-button" href="{% url 'recipe_add' menuitem.title|slugify %}">Add Recipe</a>
+    </div>
 
     <ul>
         {% for recipe in reciperequirement_list|dictsort:"ingredient.name" %}

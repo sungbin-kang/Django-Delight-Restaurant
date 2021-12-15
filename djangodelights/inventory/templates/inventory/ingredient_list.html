@@ -6,9 +6,10 @@
 {% block subcontent %}
 <div class="ingredient-list">
 
-    <h3>Ingredients</h3>
-
-    <a href="{% url 'ingredient_add' %}"><p>Add Ingredient</p></a>
+    <div class="sub-header">
+        <h3>Ingredients</h3>
+        <a class="add-button" href="{% url 'ingredient_add' %}">Add Ingredient</a>
+    </div>
 
     <ul>
         {% for ingredient in ingredient_list|dictsort:"name" %}

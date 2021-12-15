@@ -6,9 +6,10 @@
 {% block subcontent %}
 <div class="purchase-list">
 
-    <h3>Purchases</h3>
-
-    <a href="{% url 'purchase_add' %}"><p>Add Purchase</p></a>
+    <div class="sub-header">
+        <h3>Purchases</h3>  
+        <a class="add-button" href="{% url 'purchase_add' %}">Add Purchase</a>
+    </div>
 
     <p>Reports</p>
     <ul>

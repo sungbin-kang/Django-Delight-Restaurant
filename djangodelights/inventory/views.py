@@ -11,7 +11,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import MenuItem, Ingredient, RecipeRequirement, Purchase
 from .forms import MenuItemForm, IngredientForm, RecipeRequirementForm, PurchaseForm
 
+from math import ceil
+
 # Create your views here.
+
+colum_num = 3
 
 def home(request):
     context = {}
@@ -28,6 +32,20 @@ class SignUp(CreateView):
 
 class MenuItemList(LoginRequiredMixin, ListView):
     model = MenuItem
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        menuitem_num = MenuItem.objects.count()
+        # context["row_num"] = ceil(menuitem_num / colum_num)
+        # context["col_num"] = colum_num
+
+        # matrix = {0: [0, 1, 2],
+        #   1: [0, 1, 2],
+        #   2: [0, 1, 2]}
+        # context["matrix"] = matrix
+
+        return context
+    
 
 
 class MenuItemCreateView(LoginRequiredMixin, CreateView):

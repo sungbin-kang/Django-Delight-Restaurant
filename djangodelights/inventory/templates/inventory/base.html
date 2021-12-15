@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/base.css' %}">
+    <script src="{% static 'inventory/app.js' %}"></script> 
     <title>Django Delight Restaurant</title>
 </head>
 
-<body>
+<body class="body">
     <div class="header">
-        {% if user.username %}
-            <p>Welcome {{ user.username }} :) <a id="button" href="{% url 'logout' %}">Logout</a></p>
-            
-        {% else %}
-            <a id="button" href="{% url 'login' %}">Login</a> 
-            <a id="button" href="{% url 'signup' %}">Register</a>
-        {% endif %}
+        <div>
+            <a href="{% url 'home' %}"><img class="home-icon" src="{% static 'inventory/home-icon.png' %}" alt="Home" /></a>
 
-        <h1>
-            <a id="home-icon" href="{% url 'home' %}">Home</a> 
-            Django Delight Restaurant
-        </h1>
+            {% if user.username %}
+                Welcome {{ user.username }} :) <a class="button" href="{% url 'logout' %}">Logout</a>
+                
+            {% else %}
+                <a class="button" href="{% url 'login' %}">Login</a> 
+                <a class="button" href="{% url 'signup' %}">Register</a>
+            {% endif %}
+        </div>
+
+        <h1>Django Delight</h1>
+        <p>Restaurant</p>
     </div>
 
     {% block content %}

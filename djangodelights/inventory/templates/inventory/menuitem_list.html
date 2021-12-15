@@ -1,4 +1,5 @@
 {% extends "inventory/home.html"%}
+{% load static %}
 
 {% block head %}
 {% endblock %}
@@ -6,24 +7,50 @@
 {% block subcontent %}
 <div class="menuitem-list">
 
-    <h3>Menu</h3>
+    <div class="sub-header">
+        <h3>Menu</h3>
+        <a class="add-button" href="{% url 'menuitem_add' %}">Add Menu</a>
+    </div>
 
-    <a id="add-button" href="{% url 'menuitem_add' %}">Add Menu</a>
-
-    <ul>
-        {% for menuitem in menuitem_list|dictsort:"title" %}
+    {% comment %} <div>
+        <ul>
+            {% for menuitem in menuitem_list|dictsort:"title" %}
             <li>
                 {% if menuitem.image %}
-                    <img src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" >
+                <img src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" >
                 {% endif %}
+
                 {{ menuitem.title|title }}
                 ${{ menuitem.price|floatformat:2 }}
                 
                 <a href="{% url 'menuitem_update' menuitem.id %}">Edit</a>
                 <a href="{% url 'recipe_list' menuitem.title|slugify %}"><p>View Recipe</p></a> 
             </li>
+            {% endfor %}
+        </ul>
+    </div> {% endcomment %}
+
+
+    <div class="gallery">
+        {% for menuitem in menuitem_list|dictsort:"title" %}
+            <div class="item">
+
+                {% if menuitem.image %}
+                    <img class="imagein" src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" />
+                {% endif %}
+    
+                <a href="{% url 'recipe_list' menuitem.title|slugify %}"><img class="imageout" src="{% static 'inventory/view-recipe-image.png' %}" alt="view-recipe-image" /></a>
+
+                <div class="menutitle">
+                    {{ menuitem.title|title }}
+                    ${{ menuitem.price|floatformat:2 }}
+                    <a href="{% url 'menuitem_update' menuitem.id %}">Edit</a>
+                </div>
+
+            </div>
         {% endfor %}
-    </ul>
+    </div>
+        
 
 </div> 
 {% endblock subcontent %}

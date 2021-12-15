@@ -7,17 +7,18 @@
 
 {% if user.is_authenticated %}
 <body>
-    <nav class="menu-bar">
+    <div class="menu-bar">
         <a href="{% url 'menuitem_list' %}">Menu</a>
         <a href="{% url 'ingredient_list' %}">Ingredient</a>
         <a href="{% url 'purchase_list' %}">Purchase</a>
         <a href="{% url 'report' %}">Report</a>
-        <div class="dot"></div>
-    </nav>
-</body
+    </div>
+</body>
 
+<div class="subcontent">
 {% block subcontent %}
 {% endblock subcontent %}
+</div>
 
 {% endif %}
 
