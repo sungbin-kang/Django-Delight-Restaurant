@@ -12,26 +12,11 @@
         <a class="add-button" href="{% url 'menuitem_add' %}">Add Menu</a>
     </div>
 
-    {% comment %} <div>
-        <ul>
-            {% for menuitem in menuitem_list|dictsort:"title" %}
-            <li>
-                {% if menuitem.image %}
-                <img src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" >
-                {% endif %}
-
-                {{ menuitem.title|title }}
-                ${{ menuitem.price|floatformat:2 }}
-                
-                <a href="{% url 'menuitem_update' menuitem.id %}">Edit</a>
-                <a href="{% url 'recipe_list' menuitem.title|slugify %}"><p>View Recipe</p></a> 
-            </li>
-            {% endfor %}
-        </ul>
-    </div> {% endcomment %}
-
-
     <div class="gallery">
+        {% if menuitem_list|length == 0 %}
+            <p>No menu listed yet</p>
+        {% endif %}
+
         {% for menuitem in menuitem_list|dictsort:"title" %}
             <div class="item">
 

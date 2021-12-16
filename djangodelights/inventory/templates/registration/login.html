@@ -2,14 +2,19 @@
 
 {% block content %}
 
-<p>This is login.html</p>
+<div class="registration">
 
-<div class="login-form">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
-</div>
+    <h3>Please Login</h3>
+
+    <div class="login-form">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input class="button" type="submit" value="Login">
+            <a href="{% url 'signup' %}"><button class="button" type="button">Signup</button></a>
+        </form>
+    </div>
+
 
 {% endblock %}

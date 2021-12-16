@@ -5,8 +5,10 @@
     
     <h3>Report</h3>
 
-    <p>Revenue: ${{ revenue|floatformat:2 }}</p>
-    <p>Profit: ${{ profit|floatformat:2 }}</p>
+    <ul class="list">
+        <li>Revenue: ${{ revenue|floatformat:2 }}</li>
+        <div class="profit"><li>Profit: ${{ profit|floatformat:2 }}</li></div>
+    </ul>
 
 </div>
 {% endblock subcontent %}

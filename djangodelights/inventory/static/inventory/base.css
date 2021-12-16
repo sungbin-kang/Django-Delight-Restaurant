@@ -56,6 +56,54 @@ a.button:hover {
     opacity: .6;
 }
 
+/* ------------------- REGISTRATION ------------------- */
+
+.registration {
+    position: relative;
+    margin: 30px;
+    text-align: center;
+}
+
+.registration h3 {
+    font-size: 1.5em;
+    margin: 20px;
+}
+
+.registration p {
+    margin: 1em;;
+}
+
+.registration label {
+    font-weight: bold;
+}
+
+.registration .helptext,
+.registration li {
+    list-style: none;
+    color:#292929;
+    font-size: .9em;
+}
+
+.registration .button {
+    font-size: .9em;
+    display:inline-block;
+    padding: 0.3em 5em;
+    border: 0.16em solid #FFFFFF;
+    margin: 2em 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+    transition: 150ms;
+    background-color: transparent;
+}
+
+.registration .button:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
 /* ------------------- MENU-BAR ------------------- */
 
 .menu-bar {
@@ -171,20 +219,62 @@ a.button:hover {
 .gallery .item img {
     position: absolute;
     max-width: 100%;
-    max-height: 85%;
+    margin-bottom: 80px;
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
     transition: .5s ease;
 }
 
-
 .gallery .item .imagein:hover {
-    opacity: .5;
+    opacity: .1;
 }
 
 .gallery .item .imageout {
-    position: relative ;
+    position: relative;
     opacity: 0;
 }
 
 .gallery .item .imageout:hover {
     opacity: 1;
 }
+
+/* ------------------- LIST ------------------- */
+
+
+.list {
+    font-size: 1em;
+    padding: 0 !important;
+    position: absolute;
+    width: 66%;
+    font-family: courier;
+    border: 1px solid #dedede;
+    background-color: #e7e7e7;
+  }
+
+  .list li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+    text-indent: 20px;
+    height: auto;
+    padding: 10px;
+  }
+
+
+  .list li:hover {
+    background-color: #f0f0f0;
+    -webkit-transition: all 0.2s;
+    -moz-transition:    all 0.2s;
+    -ms-transition:     all 0.2s;
+    -o-transition:      all 0.2s;
+  }
+
+  .list li .timestamp {
+      text-align: right;
+      color: #ca7469;
+      font-size: .8em;
+      display: inline-block;
+  }
+
+  .list li .profit {
+    color: #ca7469; 
+  }

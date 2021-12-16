@@ -11,11 +11,16 @@
         <a class="add-button" href="{% url 'purchase_add' %}">Add Purchase</a>
     </div>
 
-    <p>Reports</p>
-    <ul>
+    {% if purchase_list|length == 0 %}
+        <p>No purchase listed yet</p>
+    {% endif %}
+
+    <ul class="list">
         {% for purchase in purchase_list %}
             <li>{{ purchase.menu_item.title|title }}
+                <div class="timestamp">
                 {{ purchase.timestamp }}
+                </div>
             </li>
         {% endfor %}
     </ul>

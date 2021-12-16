@@ -2,14 +2,42 @@
 
 {% block content %}
 
-<p>This is signup.html</p>
+<div class="registration">
+    <h3>Please Sign Up</h3> 
 
-<div class="signup-form">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
+    <div class="signup-form">
+        <form method="POST">
+            {% csrf_token %}
+            {% comment %} {{ form.as_p }}
+            <input type="submit" value="Login">         {% endcomment %}
+
+            <input type="hidden" name="csrfmiddlewaretoken" value="vSwtGNgH3zIc5gANHutazF4B7IyMogrhX4oPmmqEKRSBw6cD27NnhnlwoVgJ2gDl">
+            <p>
+                <label for="id_username">Username:</label> 
+                <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username"> 
+                <br/><span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+            </p>
+
+            <p>
+                <label for="id_password1">Password:</label> 
+                <input type="password" name="password1" autocomplete="new-password" required id="id_password1"> 
+                <span class="helptext">
+                        </br>Your password can’t be too similar to your other personal information.
+                        </br>Your password must contain at least 8 characters.
+                        </br>Your password can’t be a commonly used password.
+                        </br>Your password can’t be entirely numeric.
+                </span>
+            </p>
+            
+            <p>
+                <label for="id_password2">Password confirmation:</label> 
+                <input type="password" name="password2" autocomplete="new-password" required id="id_password2"> 
+                <br/><span class="helptext">Enter the same password as before, for verification.</span>
+            </p>
+
+            <input class="button" type="submit" value="Login">     
+        </form>
+    </div>
 </div>
 
 {% endblock %}

@@ -11,7 +11,11 @@
         <a class="add-button" href="{% url 'recipe_add' menuitem.title|slugify %}">Add Recipe</a>
     </div>
 
-    <ul>
+    {% if reciperequirement_list|length == 0 %}
+        <p>No recipe listed yet</p>
+    {% endif %}
+
+    <ul class="list">
         {% for recipe in reciperequirement_list|dictsort:"ingredient.name" %}
             <li>{{ recipe.ingredient.name|title }} 
                 {{ recipe.quantity }}
@@ -21,6 +25,8 @@
             </li>
         {% endfor %}
     </ul>
+    
+</div>
 
 </div>
 {% endblock subcontent %}

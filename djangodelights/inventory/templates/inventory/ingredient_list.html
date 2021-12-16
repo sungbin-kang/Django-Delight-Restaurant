@@ -11,7 +11,11 @@
         <a class="add-button" href="{% url 'ingredient_add' %}">Add Ingredient</a>
     </div>
 
-    <ul>
+    {% if ingredient_list|length == 0 %}
+        <p>No ingredient listed yet</p>
+    {% endif %}
+
+    <ul class="list">
         {% for ingredient in ingredient_list|dictsort:"name" %}
             <li>{{ ingredient.name|title }}
                 {{ ingredient.quantity }} {{ ingredient.unit }}
