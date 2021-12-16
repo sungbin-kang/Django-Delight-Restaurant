@@ -11,8 +11,9 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Update">
-        <a href="{% url 'recipe_delete' menuitem_title=menuitem.title|slugify pk=reciperequirement.id %}"><button type="button">Delete</button></a>
+        <input class="button update-button" type="submit" value="Update">
+
+        <a class="button delete-button" href="{% url 'recipe_delete' menuitem_title=menuitem.title|slugify pk=reciperequirement.id %}">Delete</a>
     </form>
 
 </div>

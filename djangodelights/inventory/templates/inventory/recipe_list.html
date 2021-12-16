@@ -8,7 +8,7 @@
 
     <div class="sub-header">
         <h3>{{ menuitem.title|title }} Recipe</h3>
-        <a class="add-button" href="{% url 'recipe_add' menuitem.title|slugify %}">Add Recipe</a>
+        <a class="button add-button" href="{% url 'recipe_add' menuitem.title|slugify %}">Add Recipe</a>
     </div>
 
     {% if reciperequirement_list|length == 0 %}

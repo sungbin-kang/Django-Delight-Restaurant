@@ -38,7 +38,7 @@ img.home-icon:hover {
 	text-shadow: 1.5px 1.5px rgba(255, 255, 255, 0.137);
 }
 
-a.button {
+.button {
     font-size: .7em;
     display:inline-block;
     padding: 0.3em 2em;
@@ -168,25 +168,31 @@ a.button:hover {
 .subcontent h3 {
     font-size: 1.8em;
 	padding-left: 0;
+    margin-bottom: 1em;
+}
+
+.subcontent label {
+    font-weight: bold;
+}
+
+.subcontent .button {
+	font-size: 1em;
+    padding: 0.3em 2em;
+    background-color: transparent;
 }
 
 .subcontent .add-button {
-	font-size: 1em;
-	float: right;
-    
-    padding: 0.3em 2em;
-    border: 0.16em solid #FFFFFF;
-    margin: 0 0.3em 0.3em 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-align: center;
-    transition: 150ms;
+    float: right;
 }
 
-.subcontent .add-button:hover {
+.subcontent .submit-button,
+.subcontent .update-button {
+    margin-top: 2em;
+}
+
+.subcontent .button:hover {
     opacity: .6;
+    cursor: pointer;
 }
 
 /* ------------------- GALLERY ------------------- */
@@ -251,30 +257,31 @@ a.button:hover {
     background-color: #e7e7e7;
   }
 
-  .list li {
+.list li {
     list-style: none;
     border-bottom: 1px dotted #ccc;
     text-indent: 20px;
     height: auto;
     padding: 10px;
-  }
+}
 
 
-  .list li:hover {
+.list li:hover {
     background-color: #f0f0f0;
     -webkit-transition: all 0.2s;
     -moz-transition:    all 0.2s;
     -ms-transition:     all 0.2s;
     -o-transition:      all 0.2s;
-  }
+}
 
-  .list li .timestamp {
-      text-align: right;
-      color: #ca7469;
-      font-size: .8em;
-      display: inline-block;
-  }
+.list li .timestamp {
+    text-align: right;
+    color: #ca7469;
+    font-size: .8em;
+    display: inline-block;
+}
 
-  .list li .profit {
-    color: #ca7469; 
-  }
+.list li .profit {
+    color: #ca7469;
+    font-weight: bold;
+}

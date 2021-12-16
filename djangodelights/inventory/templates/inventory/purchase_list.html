@@ -8,7 +8,7 @@
 
     <div class="sub-header">
         <h3>Purchases</h3>  
-        <a class="add-button" href="{% url 'purchase_add' %}">Add Purchase</a>
+        <a class="button add-button" href="{% url 'purchase_add' %}">Add Purchase</a>
     </div>
 
     {% if purchase_list|length == 0 %}
@@ -19,7 +19,7 @@
         {% for purchase in purchase_list %}
             <li>{{ purchase.menu_item.title|title }}
                 <div class="timestamp">
-                {{ purchase.timestamp }}
+                    {{ purchase.timestamp }}
                 </div>
             </li>
         {% endfor %}

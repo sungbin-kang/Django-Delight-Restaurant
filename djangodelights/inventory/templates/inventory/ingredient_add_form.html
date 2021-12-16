@@ -8,11 +8,11 @@
 
     <h3>Add New Ingredient Item</h3>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input id="add-button" type="submit" value="Add">
-        </form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="button submit-button" type="submit" value="Add">
+    </form>
 
 </div>
 {% endblock subcontent %}
