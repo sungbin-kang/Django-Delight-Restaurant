@@ -1,5 +1,6 @@
 # Django Delight Restaurant - Django Project
 
+
 # Overview
 This application is to help a restaurant owner keep track of their inventory and sales. The owner starts the day with: 
 - An inventory of different `Ingredient`s, their available quantity, and their prices per unit
@@ -18,6 +19,8 @@ Lastly, they are able to enter in a customer purchase of a menu item. When a cus
 - Django
 - Git
 - Command Line
+
+
 
 # Database Models
 
@@ -107,6 +110,8 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 | 1   | 1         | March 4, 2021, 4:18 p.m. |
 
 
+
+
 # How to use the website
 
 ## Home, Login, Signup
@@ -115,9 +120,7 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 <img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/signup.png" width="400"/>
 
 ## Add, Edit Ingredient
-<video width=200 controls autoplay preload="auto">
-    <source src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/ingredient-add-update.mov">
-</video>
+<video src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/ingredient-add-update.mov" width=200 controls autoplay preload="auto">
 
 ## Add, Edit Menu
 
