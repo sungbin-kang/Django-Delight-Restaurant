@@ -11,21 +11,26 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import MenuItem, Ingredient, RecipeRequirement, Purchase
 from .forms import MenuItemForm, IngredientForm, RecipeRequirementForm, PurchaseForm
 
-from math import ceil
-
-# Create your views here.
-
-colum_num = 3
+# --------------------------------- HOME -----------------------------------
 
 def home(request):
     context = {}
     return render(request, "inventory/home.html", context)
 
 
+# --------------------------------- SIGNUP -----------------------------------
+
+
 class SignUp(CreateView):
     form_class = UserCreationForm
     template_name = "registration/signup.html"
     success_url = reverse_lazy("login")
+
+
+# --------------------------------- LOGOUT -----------------------------------
+
+def logout_view(request):
+    logout(request)
 
 
 # --------------------------------- MENU ITEM ---------------------------------
@@ -44,12 +49,6 @@ class MenuItemUpdateView(LoginRequiredMixin, UpdateView):
     model = MenuItem
     form_class = MenuItemForm
     template_name = "inventory/menuitem_update_form.html"
-
-# class MenuItemDeleteView(DeleteView):
-#     model = MenuItem
-#     form_class = MenuItemForm
-#     template_name = "inventory/menuitem_delete_form.html"
-#     success_url = "/menu"
 
 
 # -------------------------------- INGREDENT ----------------------------------
@@ -157,9 +156,6 @@ class PurchaseCreateView(LoginRequiredMixin, CreateView):
     form_class = PurchaseForm
     template_name = "inventory/purchase_add_form.html"
 
-    # if required ingredient for menuitem not enough,
-    # form input select option grayed out
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         available_menuitems = [X for X in MenuItem.objects.all() if X.available()]
@@ -209,9 +205,3 @@ class ReportView(LoginRequiredMixin, TemplateView):
         context["profit"] = profit
 
         return context
-
-
-# --------------------------------- LOGOUT -----------------------------------
-
-def logout_view(request):
-    logout(request)

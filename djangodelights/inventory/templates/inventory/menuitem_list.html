@@ -22,9 +22,14 @@
 
                 {% if menuitem.image %}
                     <img class="imagein" src="{{ menuitem.image.url }}" alt="{{ menuitem.title }}" />
+                {% else %}
+                    <p class="imagein">no image</p>
                 {% endif %}
     
-                <a href="{% url 'recipe_list' menuitem.title|slugify %}"><img class="imageout" src="{% static 'inventory/view-recipe-image.png' %}" alt="view-recipe-image" /></a>
+                {% comment %} <a href="{% url 'recipe_list' menuitem.title|slugify %}"><img class="imageout" src="{% static 'inventory/view-recipe-image.png' %}" alt="view-recipe-image" /></a> {% endcomment %}
+                <div class="overlay">
+                    <a class="view-image" href="{% url 'recipe_list' menuitem.title|slugify %}">View Recipe</a>
+                </div>
 
                 <div class="menutitle">
                     {{ menuitem.title|title }}

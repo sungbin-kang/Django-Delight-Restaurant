@@ -3,6 +3,7 @@ from .models import MenuItem, Ingredient, RecipeRequirement, Purchase
 
 
 # ----------------------- MENU ITEM -------------------------
+
 class MenuItemForm(forms.ModelForm):
 
     class Meta:
@@ -11,6 +12,7 @@ class MenuItemForm(forms.ModelForm):
 
 
 # ----------------------- INGREDENT -------------------------
+
 class IngredientForm(forms.ModelForm):
 
     class Meta:
@@ -19,6 +21,7 @@ class IngredientForm(forms.ModelForm):
 
 
 # ------------------- RECIPE REQURIEMENT --------------------
+
 class RecipeRequirementForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -33,6 +36,7 @@ class RecipeRequirementForm(forms.ModelForm):
 
 
 # ----------------------- PURCHASE --------------------------
+
 class PurchaseForm(forms.ModelForm):
 
     class Meta:
