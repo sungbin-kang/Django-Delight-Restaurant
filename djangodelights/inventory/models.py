@@ -43,7 +43,7 @@ class Ingredient(models.Model):
     GRAM = "grams"
     KILOGRAM = "kilograms"
     POUND = "pounds"
-    OUNCE = "ounce"
+    OUNCE = "ounces"
     COUNT = "counts"
     UNITS_CHOICES = {
         (GRAM, "gram"),
@@ -69,11 +69,6 @@ class Ingredient(models.Model):
     
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
-        
-        if self.unit in units_per_gram:
-            self.quantity = convert_to_grams(self.quantity, self.unit)
-            self.price_per_unit /= self.quantity
-            self.unit = "grams"
        
         return super(Ingredient, self).save(*args, **kwargs)
 

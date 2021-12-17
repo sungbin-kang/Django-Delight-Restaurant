@@ -21,6 +21,7 @@ class IngredientForm(forms.ModelForm):
 # ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementForm(forms.ModelForm):
 
+
     class Meta:
         model = RecipeRequirement
         fields = "__all__"
