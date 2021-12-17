@@ -120,7 +120,9 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 <img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/signup.png" width="400"/>
 
 ## Add, Edit Ingredient
-<video src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/ingredient-add-update.mov" width=200 controls autoplay preload="auto">
+<video width=200 controls autoplay preload="auto">
+    <source src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/ingredient-add-update.mov">
+</video>
 
 ## Add, Edit Menu
 
