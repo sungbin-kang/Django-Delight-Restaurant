@@ -112,21 +112,21 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 
 
 
-# How to use the website
+# Website View
 
-## Home, Login, Signup
 <img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/home.png" width="400"> 
 <img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/login.png" width="400"/> 
 <img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/signup.png" width="400"/>
 
-## Add, Edit Ingredient
-<video width=200 controls autoplay preload="auto">
-    <source src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/ingredient-add-update.mov">
-</video>
 
-## Add, Edit Menu
+# UML Diagrams
 
-## Make a Purchase, View Report
+## Class Diagram
+<img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/UML%20Diagram/class-diagram.png" width="400"/>
+
+## Before and After Purchase Object Diagrams
+<img src="https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/UML%20Diagram/before-after-purchase-object-diagram.png" width="400"/>
+
 
 
 # Views and Templates
