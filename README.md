@@ -107,6 +107,20 @@ Lastly, when someone wishes to purchase a **Django Djaffa Cake**, we would allow
 | 1   | 1         | March 4, 2021, 4:18 p.m. |
 
 
+# How to use the website
+
+## Home, Login, Signup
+![alt text](https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/home.png | width=100)
+![alt text](https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/login.png | width=100)
+![alt text](https://github.com/sungbin-kang/Django-Delight-Restaurant/blob/master/resource/img-vid/signup.png | width=100)
+
+## Add, Edit Ingredient
+
+## Add, Edit Menu
+
+## Make a Purchase, View Report
+
+
 # Views and Templates
 
 ## Base/Home Views
