@@ -106,7 +106,7 @@ class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
     def get_initial(self):
         initial = super().get_initial()
         menuitem_title = self.kwargs["menuitem_title"].replace("-", " ")
-        initial["menu_item"]  = MenuItem.objects.get(title=menuitem_title)
+        initial["menu_item"] = MenuItem.objects.get(title=menuitem_title)
         return initial
 
 class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):

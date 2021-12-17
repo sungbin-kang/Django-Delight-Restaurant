@@ -21,6 +21,11 @@ class IngredientForm(forms.ModelForm):
 # ------------------- RECIPE REQURIEMENT --------------------
 class RecipeRequirementForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        initial = kwargs["initial"]
+        super(RecipeRequirementForm, self).__init__(*args, **kwargs)
+        menu_item = initial["menu_item"]
+        self.fields['menu_item'].queryset = MenuItem.objects.filter(title=menu_item.title)
 
     class Meta:
         model = RecipeRequirement
